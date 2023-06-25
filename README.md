@@ -14,3 +14,5 @@ play_minesweeper is where you can test the performance of the AI (Hex and Classi
 hexagontile is a class for rendering and creating the hexagons
 
 Baseline is used for checking for baseline agents of both hexagon and classic version
+
+img and models contain images for the tiles and trained models respectively.
