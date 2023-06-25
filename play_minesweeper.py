@@ -1,10 +1,10 @@
 import numpy as np
 from keras.models import load_model
 from minesweeper_env import Minesweeper
-#from DDQN import DoubleDQNAgent
+from DDQN_hexagon import DoubleDQNAgent
 import time
 from hexagon_env import HexSweeper
-from DDQN import DoubleDQNAgent
+#from DDQN import DoubleDQNAgent
 
 def run_minesweeper(env, agent):
     """c
@@ -23,9 +23,9 @@ def run_minesweeper(env, agent):
                 state, reward, done = env.step(action)
                 if done:
                     if GUI:
-                        env.render(valid_qvalues)
+                        env.render()
                         time.sleep(MOVE_DELAY)
-                        env.plot_board(action)
+                        #env.plot_minefield(action)
                     if not env.explosion: 
                         win_count += 1
                         result = 'win'
@@ -80,14 +80,14 @@ COLDIM = 8
 MINE_COUNT = 10
 
 # Load agent model
-ONLINE_NETWORK = load_model('model/8x8.h5')
+ONLINE_NETWORK = load_model('model/8x8hex.h5')
 MOVE_DELAY = 0 # seconds per move
 
 NUM_GAMES = 1000 # number of games to play
-GUI = False # True if u want to see the game
+GUI = True # True if u want to see the game
 
 # Set up agent and environment
 agent = init_agent()
-env = Minesweeper(ROWDIM, COLDIM, MINE_COUNT, gui=GUI)
+env = HexSweeper(ROWDIM, COLDIM, MINE_COUNT, gui=GUI)
 test = run_minesweeper(env, agent)
 
