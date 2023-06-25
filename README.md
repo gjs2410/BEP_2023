@@ -2,6 +2,7 @@
 Minesweeper/HexMinesweeper project using Reinforcement Learning
 
 minesweeper_env and hexagon_env contain classes that are used to create the board and mechanics of minesweeper.
+
 DDQN and DDQN_hexagon include the classes for the agent(AI) that plays the game.
 SumTree is a data structure used for experience replay.
 train_minesweeper and hextrain are used for training the agent located in DDQN/DDQN_hexagon
